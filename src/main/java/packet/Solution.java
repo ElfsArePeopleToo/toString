@@ -20,13 +20,13 @@ public class Solution {
         for (Field field : fields) {
             Class fieldType = field.getType();
             String fieldName = field.getName();
-            System.out.print("name: " + clss.getDeclaredField(fieldName).get(object) + ", " + "type: " + fieldType + " \n");
+            solution +="name: " + clss.getDeclaredField(fieldName).get(object) + ", " + "type: " + fieldType + " \n";
         }
         return solution;
     }
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        toStringIt(new People("Дон", 24));
+        System.out.println(toStringIt(new People("Дон", 24)));
     }
 }
 
