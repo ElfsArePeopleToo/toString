@@ -15,7 +15,6 @@ public class Solution {
     public static String toStringIt(Object object) throws NoSuchFieldException, IllegalAccessException {
         Class<?> clss = object.getClass();
         String solution = "";
-
         final Field[] fields = clss.getDeclaredFields();
 
         for (Field field : fields) {
@@ -23,15 +22,13 @@ public class Solution {
             String fieldName = field.getName();
             Field fieldOn = clss.getDeclaredField(fieldName);
 
-
             solution += "name: " + fieldOn.get(clss)  + ", " + "type: " + fieldType + " \n";
         }
         return solution;
     }
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         System.out.println(toStringIt(new People("Дон", 24)));
-
     }
-
-
 }
+
+
