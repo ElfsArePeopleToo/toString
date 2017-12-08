@@ -22,10 +22,9 @@ public class Solution {
             Class fieldType = field.getType();
             String fieldName = field.getName();
             Field fieldOn = clss.getDeclaredField(fieldName);
-            field.setAccessible(true);
-            fieldOn.get(clss);
 
-            solution += "name: " + clss  + ", " + "type: " + fieldType + " \n";
+
+            solution += "name: " + fieldOn.get(clss)  + ", " + "type: " + fieldType + " \n";
         }
         return solution;
     }
