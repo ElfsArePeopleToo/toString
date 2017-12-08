@@ -13,21 +13,20 @@ import java.lang.reflect.Field;
  */
 public class Solution {
     public static String toStringIt(Object object) throws NoSuchFieldException, IllegalAccessException {
-        Class<?> clss = object.getClass();
+        Class clss = object.getClass();
         String solution = "";
         final Field[] fields = clss.getDeclaredFields();
 
         for (Field field : fields) {
             Class fieldType = field.getType();
             String fieldName = field.getName();
-            Field fieldOn = clss.getDeclaredField(fieldName);
-
-            solution += "name: " + fieldOn.get(clss)  + ", " + "type: " + fieldType + " \n";
+            System.out.print("name: " + clss.getDeclaredField(fieldName).get(object) + ", " + "type: " + fieldType + " \n");
         }
         return solution;
     }
+
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        System.out.println(toStringIt(new People("Дон", 24)));
+        toStringIt(new People("Дон", 24));
     }
 }
 
